@@ -33,7 +33,7 @@ namespace BupaAcibademWebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BupaAcibademWebApi", Version = "v1" });
             });
-            services.AddDbContext<BupaacibademdbContext>(
+            services.AddDbContext<BupaAcibademDBContext>(
                 options => options.UseSqlServer("name=ConnectionStrings:BupaAcibademDB"));
         }
 

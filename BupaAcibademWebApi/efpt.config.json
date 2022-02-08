@@ -1,6 +1,6 @@
 ﻿{
    "CodeGenerationMode": 0,
-   "ContextClassName": "BupaacibademdbContext",
+   "ContextClassName": "BupaAcibademDBContext",
    "ContextNamespace": "Data",
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
@@ -11,7 +11,7 @@
    "ProjectRootNamespace": "BupaAcibademWebApi",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
-   "SelectedToBeGenerated": 0,
+   "SelectedToBeGenerated": 1,
    "Tables": [
       {
          "Name": "[dbo].[Cards]",
