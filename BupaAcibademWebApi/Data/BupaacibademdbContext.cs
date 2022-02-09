@@ -30,21 +30,21 @@ namespace BupaAcibademWebApi.Data
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Turkish_CI_AS");
 
-            modelBuilder.Entity<Card>(entity =>
-            {
-                entity.Property(e => e.CardHolderFirstNameLastName).HasMaxLength(50);
+            //modelBuilder.Entity<Card>(entity =>
+            //{
+            //    entity.Property(e => e.CardHolderFirstNameLastName).HasMaxLength(50);
 
-                entity.Property(e => e.CardValidationValue).HasMaxLength(10);
+            //    entity.Property(e => e.CardValidationValue).HasMaxLength(10);
 
-                entity.Property(e => e.CreditCardNumber).HasMaxLength(20);
+            //    entity.Property(e => e.CreditCardNumber).HasMaxLength(20);
 
-                entity.Property(e => e.ValidThru).HasMaxLength(10);
+            //    entity.Property(e => e.ValidThru).HasMaxLength(10);
 
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Cards)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_Cards_Customers");
-            });
+            //    entity.HasOne(d => d.Customer)
+            //        .WithMany(p => p.Cards)
+            //        .HasForeignKey(d => d.CustomerId)
+            //        .HasConstraintName("FK_Cards_Customers");
+            //});
 
             modelBuilder.Entity<Customer>(entity =>
             {
@@ -59,42 +59,42 @@ namespace BupaAcibademWebApi.Data
                 entity.Property(e => e.PhoneNumber).HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Order>(entity =>
-            {
-                entity.Property(e => e.OrderDate).HasMaxLength(10);
+            //modelBuilder.Entity<Order>(entity =>
+            //{
+            //    entity.Property(e => e.OrderDate).HasMaxLength(10);
 
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_Orders_Customers");
+            //    entity.HasOne(d => d.Customer)
+            //        .WithMany(p => p.Orders)
+            //        .HasForeignKey(d => d.CustomerId)
+            //        .HasConstraintName("FK_Orders_Customers");
 
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK_Orders_Products");
-            });
+            //    entity.HasOne(d => d.Product)
+            //        .WithMany(p => p.Orders)
+            //        .HasForeignKey(d => d.ProductId)
+            //        .HasConstraintName("FK_Orders_Products");
+            //});
 
-            modelBuilder.Entity<Payment>(entity =>
-            {
-                entity.Property(e => e.PaymentDate).HasMaxLength(10);
+            //modelBuilder.Entity<Payment>(entity =>
+            //{
+            //    entity.Property(e => e.PaymentDate).HasMaxLength(10);
 
-                entity.Property(e => e.PaymentType).HasMaxLength(25);
+            //    entity.Property(e => e.PaymentType).HasMaxLength(25);
 
-                entity.HasOne(d => d.Card)
-                    .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.CardId)
-                    .HasConstraintName("FK_Payments_Cards");
+            //    entity.HasOne(d => d.Card)
+            //        .WithMany(p => p.Payments)
+            //        .HasForeignKey(d => d.CardId)
+            //        .HasConstraintName("FK_Payments_Cards");
 
-                entity.HasOne(d => d.Customer)
-                    .WithMany(p => p.Payments)
-                    .HasForeignKey(d => d.CustomerId)
-                    .HasConstraintName("FK_Payments_Customers");
-            });
+            //    entity.HasOne(d => d.Customer)
+            //        .WithMany(p => p.Payments)
+            //        .HasForeignKey(d => d.CustomerId)
+            //        .HasConstraintName("FK_Payments_Customers");
+            //});
 
-            modelBuilder.Entity<Product>(entity =>
-            {
-                entity.Property(e => e.Title).HasMaxLength(50);
-            });
+            //modelBuilder.Entity<Product>(entity =>
+            //{
+            //    entity.Property(e => e.Title).HasMaxLength(50);
+            //});
 
             OnModelCreatingPartial(modelBuilder);
         }
