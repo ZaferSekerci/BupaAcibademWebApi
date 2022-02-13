@@ -11,26 +11,10 @@
    "ProjectRootNamespace": "BupaAcibademWebApi",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
-   "SelectedToBeGenerated": 1,
+   "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[dbo].[Cards]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Customers]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Orders]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Payments]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Products]",
+         "Name": "[dbo].[OrderTable]",
          "ObjectType": 0
       }
    ],
@@ -40,6 +24,7 @@
    "UseDbContextSplitting": false,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
+   "UseHierarchyId": false,
    "UseInflector": true,
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,

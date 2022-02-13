@@ -12,47 +12,47 @@ namespace BupaAcibademWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrdersController : ControllerBase
+    public class OrderTablesController : ControllerBase
     {
         private readonly BupaAcibademDBContext _context;
 
-        public OrdersController(BupaAcibademDBContext context)
+        public OrderTablesController(BupaAcibademDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Orders
+        // GET: api/OrderTables
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
+        public async Task<ActionResult<IEnumerable<OrderTable>>> GetOrderTables()
         {
-            return await _context.Orders.ToListAsync();
+            return await _context.OrderTables.ToListAsync();
         }
 
-        // GET: api/Orders/5
+        // GET: api/OrderTables/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrder(int id)
+        public async Task<ActionResult<OrderTable>> GetOrderTable(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
+            var orderTable = await _context.OrderTables.FindAsync(id);
 
-            if (order == null)
+            if (orderTable == null)
             {
                 return NotFound();
             }
 
-            return order;
+            return orderTable;
         }
 
-        // PUT: api/Orders/5
+        // PUT: api/OrderTables/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrder(int id, Order order)
+        public async Task<IActionResult> PutOrderTable(int id, OrderTable orderTable)
         {
-            if (id != order.Id)
+            if (id != orderTable.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(order).State = EntityState.Modified;
+            _context.Entry(orderTable).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace BupaAcibademWebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!OrderExists(id))
+                if (!OrderTableExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace BupaAcibademWebApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Orders
+        // POST: api/OrderTables
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<OrderTable>> PostOrderTable(OrderTable orderTable)
         {
-            _context.Orders.Add(order);
+            _context.OrderTables.Add(orderTable);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+            return CreatedAtAction("GetOrderTable", new { id = orderTable.Id }, orderTable);
         }
 
-        // DELETE: api/Orders/5
+        // DELETE: api/OrderTables/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrder(int id)
+        public async Task<IActionResult> DeleteOrderTable(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
-            if (order == null)
+            var orderTable = await _context.OrderTables.FindAsync(id);
+            if (orderTable == null)
             {
                 return NotFound();
             }
 
-            _context.Orders.Remove(order);
+            _context.OrderTables.Remove(orderTable);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool OrderExists(int id)
+        private bool OrderTableExists(int id)
         {
-            return _context.Orders.Any(e => e.Id == id);
+            return _context.OrderTables.Any(e => e.Id == id);
         }
     }
 }
